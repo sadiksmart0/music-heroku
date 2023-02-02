@@ -28,7 +28,7 @@ def tokenize_lyrics(text):
 #================================ PREDICT WITH LYRICS ============================#
 def recommend_with_lyrics(text):
     song = tokenize_lyrics(text)
-    response = requests.post("https://sadiksmart0-music-heroku-srcapp-3vlfhm.streamlit.app:8000/lyrics", json={"text": song})
+    response = requests.post("https://sadiksmart0-music-heroku-srcapp-3vlfhm.streamlit.app:8080/lyrics", json={"text": song})
     response = json.loads(response.text)
     return  response
 

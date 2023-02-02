@@ -6,7 +6,6 @@ import neattext as nt
 import pandas as pd
 import numpy as np
 from nltk.tokenize import word_tokenize
-import nltk_download
 
 
 #================================ CLEAN TEXT ============================#

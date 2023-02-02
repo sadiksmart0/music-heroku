@@ -58,5 +58,5 @@ def filter(result):
 if __name__ == '__main__':
     import nltk
     nltk.download('punkt')
-    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
+    uvicorn.run("main:app", host="163.5.10.189", port=8080, reload=True)
 

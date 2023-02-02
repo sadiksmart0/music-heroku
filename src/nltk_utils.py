@@ -1,5 +1,5 @@
 import subprocess
 import nltk
 def utils():
-    cmd = ['python', '-c', "import nltk; nltk.download('punkt')"]
+    cmd = ['python', '-m', "import nltk; nltk.download('punkt')"]
     subprocess.run(cmd)

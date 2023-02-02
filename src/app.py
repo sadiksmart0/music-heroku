@@ -5,7 +5,7 @@ import uuid
 import datetime
 import json
 import pandas as pd
-import nltk_utils import utils
+from nltk_utils import utils
 
 utils()
 #================ Gif loader ===================#

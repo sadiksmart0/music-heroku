@@ -41,14 +41,14 @@ def user_lyrics(lyrics: Data):
 
 #============================  GET SIMILAR BASED ON COSINE SIMILARITY =====================#
 def get_similar(song_lyrics):
-    model = Doc2Vec.load("C:/Users/A.M. MUKTAR/music-heroku/models/sim.model")
+    model = Doc2Vec.load("models/sim.model")
     v1 = model.infer_vector(song_lyrics)
     similar_doc = model.docvecs.most_similar(v1)
     sim  = filter(similar_doc)
     return sim
 
 def filter(result):
-    df = pd.read_csv("C:/Users/A.M. MUKTAR/music-heroku/dataset/lyrics.csv")
+    df = pd.read_csv("dataset/lyrics.csv")
     index_list = []
     for i in result:
         index_list.append(int(i[0]))

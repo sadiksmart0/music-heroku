@@ -7,7 +7,7 @@ import json
 import pandas as pd
 
 #================ Gif loader ===================#
-file_ = open("C:/Users/A.M. MUKTAR/music-mood-recognition/images/prof.gif", "rb")
+file_ = open("images/prof.gif", "rb")
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()

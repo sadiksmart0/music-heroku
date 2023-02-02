@@ -1,8 +1,10 @@
 import streamlit as st
-from predict import recommend_with_lyrics, get_similar
+from predict import recommend_with_lyrics, final_recommended
 import base64
 import uuid
 import datetime
+import json
+import pandas as pd
 
 #================ Gif loader ===================#
 file_ = open("C:/Users/A.M. MUKTAR/music-mood-recognition/images/prof.gif", "rb")
@@ -62,12 +64,12 @@ lyrics_data = {
 }
 
 if st.button('Submit'):
-    result, mood = recommend_with_lyrics(txt)
-    to_recommend_db(lyrics_data, mood)
-    rec_songs = get_similar(result)
-    result = final_recommended(rec_songs)
+    mood = recommend_with_lyrics(txt)
+    mood = json.loads(mood["mood"])
+    result = pd.DataFrame(mood)
+    result = final_recommended(result)
     view(result)
-    #st.write(rec_songs)
+
 
 
 

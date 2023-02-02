@@ -5,6 +5,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 import neattext as nt
 import pandas as pd
 import numpy as np
+from nltk.tokenize import word_tokenize
 
 
 #================================ CLEAN TEXT ============================#
@@ -32,18 +33,18 @@ def recommend_with_lyrics(text):
     return  response
 
 
+tracklist = []
+#================================ RECOMMENDED  ===============================#
+def final_recommended(df):
+    for i in df["dzr_sng_id"].values:
+        response = requests.get(f"https://api.deezer.com/track/{i}")
+        response = json.loads(response.text)
+        tracklist.append(response)
+    return tracklist
 
-#============================  GET SIMILAR BASED ON COSINE SIMILARITY =====================#
-def get_similar(song_lyrics):
-    all_songs, ref_song = vectorize_search(song_lyrics)
-    for i in range(len(all_songs)):
-        sim = all_songs[i].similarity(ref_song)
-        sims.append(sim)
-        doc_id.append(i)
-        sims_docs = pd.DataFrame(list(zip(doc_id, sims)), columns=["doc_id","sims"])
-        sims_docs_sorted = sims_docs.sort_values(by = "sims", ascending=False)
-        top = song_lyrics.iloc[sims_docs_sorted["doc_id"][:10]]
-        return top
+
+
+
 
 
 

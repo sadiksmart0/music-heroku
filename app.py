@@ -6,7 +6,6 @@ import datetime
 import json
 import pandas as pd
 import uvicorn
-#from nltk_utils import utils
 import nltk
 nltk.download('punkt')
 

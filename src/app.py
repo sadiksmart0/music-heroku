@@ -8,6 +8,9 @@ import pandas as pd
 #from nltk_utils import utils
 import nltk
 nltk.download('punkt')
+
+
+
 #================ Gif loader ===================#
 file_ = open("images/prof.gif", "rb")
 contents = file_.read()
@@ -72,6 +75,8 @@ if st.button('Submit'):
     result = final_recommended(result)
     view(result)
 
+if __name__ == '__main__':
+    uvicorn.run("main:app", host="https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app", port=8080, reload=True)
 
 
 

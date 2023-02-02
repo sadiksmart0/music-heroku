@@ -38,17 +38,16 @@ with photo:
 
 #========================   RECOMMMENDATION VIEW  ==================================#
 def view(result):
-    view = st.empty()
     img_col, play_col = st.columns(2)
     for song in result:
         with img_col:
-            view.subheader(song["title"])
-            view.write(song["artist"]["name"])
-            view.image(song["artist"]["picture"])
+            st.subheader(song["title"])
+            st.write(song["artist"]["name"])
+            st.image(song["artist"]["picture"])
         with play_col:
-            view.subheader(song["album"]["title"])
-            view.write(f'Duration: {round(song["duration"]/60,2)} min')
-            view.markdown(f"[![Foo](https://cdn-icons-png.flaticon.com/128/9458/9458362.png)]({song['link']})")
+            st.subheader(song["album"]["title"])
+            st.write(f'Duration: {round(song["duration"]/60,2)} min')
+            st.markdown(f"[![Foo](https://cdn-icons-png.flaticon.com/128/9458/9458362.png)]({song['link']})")
 
 
 
@@ -74,7 +73,9 @@ if st.button('Submit'):
     mood = json.loads(mood["mood"])
     result = pd.DataFrame(mood)
     result = final_recommended(result)
-    view(result)
+    display = st.empty()
+    display.container():
+        view(result)
 
 
 

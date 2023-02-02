@@ -74,7 +74,7 @@ if st.button('Submit'):
     result = pd.DataFrame(mood)
     result = final_recommended(result)
     display = st.empty()
-    display.container():
+    with display.container():
         view(result)
 
 

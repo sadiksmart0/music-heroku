@@ -9,7 +9,7 @@ from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from nltk.tokenize import word_tokenize
 import pandas as pd
 import numpy as np
-import nltk
+
 
 
 #================================= Validating File  ============================================#
@@ -56,6 +56,7 @@ def filter(result):
 
 
 if __name__ == '__main__':
-
+    import nltk
+    nltk.download('punkt')
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
 

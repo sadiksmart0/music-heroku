@@ -6,7 +6,7 @@ import datetime
 import json
 import pandas as pd
 from nltk_utils import utils
-
+def main():
     #================ Gif loader ===================#
     file_ = open("images/prof.gif", "rb")
     contents = file_.read()

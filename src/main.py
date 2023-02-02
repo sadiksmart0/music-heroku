@@ -58,5 +58,5 @@ def filter(result):
 if __name__ == '__main__':
     import nltk
     nltk.download('punkt')
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="https://sadiksmart0-music-heroku-srcapp-3vlfhm.streamlit.app", port=8000, reload=True)
 

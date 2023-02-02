@@ -49,7 +49,7 @@ def view(result):
             with play_col:
                 st.subheader(song["album"]["title"])
                 st.write(f'Duration: {round(song["duration"]/60,2)} min')
-                st.markdown(f"[![Foo](https://cdn-icons-png.flaticon.com/128/9458/9458362.png)]({song['link']})")
+                st.markdown(f"[![Foo](https://cdn-icons-png.flaticon.com/128/9458/9458362.png)]({song['preview']})")
 
 
 

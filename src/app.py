@@ -76,8 +76,6 @@ if st.button('Submit'):
     result = final_recommended(result)
     view(result)
 
-if __name__ == '__main__':
-    uvicorn.run("main:app", host="https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app", port=8080, reload=True)
 
 
 

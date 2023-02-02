@@ -28,7 +28,7 @@ def tokenize_lyrics(text):
 #================================ PREDICT WITH LYRICS ============================#
 def recommend_with_lyrics(text):
     song = tokenize_lyrics(text)
-    response = requests.post("http://127.0.0.1:8000/lyrics", json={"text": song})
+    response = requests.post("http://0.0.0.0:8080/lyrics", json={"text": song})
     response = json.loads(response.text)
     return  response
 

@@ -4,10 +4,7 @@ import pandas as pd
 import uvicorn
 from pydantic import BaseModel, validator
 import numpy as np
-from song_name_emotion import get_bert_model
-from tensorflow.train import latest_checkpoint
-from database import write_to_all_songs
-from predict import get_song_bert_predictions
+
 
 
 #================================= Validating File  ============================================#
@@ -32,11 +29,7 @@ def user_lyrics(lyrics: Data):
     print(mood)
     return {"mood": mood}
 
-@app.post("/title_artist")
-def user_artist_title(title_artist: Data):
-    input = title_artist.dict() 
-    mood = get_song_bert_predictions(song_bert, input)
-    return {"mood": mood}
+
 
 
 if __name__ == '__main__':

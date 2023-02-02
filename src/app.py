@@ -1,5 +1,4 @@
 import streamlit as st
-from PIL import Image
 from predict import recommend_with_lyrics, get_similar
 import base64
 import uuid

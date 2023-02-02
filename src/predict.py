@@ -4,9 +4,6 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import neattext as nt
 import pandas as pd
-import en_core_web_md
-import spacy
-import random
 import numpy as np
 
 
@@ -33,8 +30,6 @@ def recommend_with_lyrics(text):
     response = requests.post("http://127.0.0.1:8000/lyrics", json={"text": song})
     response = json.loads(response.text)
     return  response
-
-
 
 
 

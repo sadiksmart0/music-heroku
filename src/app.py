@@ -5,8 +5,9 @@ import uuid
 import datetime
 import json
 import pandas as pd
-import nltk_download
+import nltk_utils import utils
 
+utils()
 #================ Gif loader ===================#
 file_ = open("images/prof.gif", "rb")
 contents = file_.read()

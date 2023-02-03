@@ -1,11 +1,9 @@
 #=============================   Import Dependencies  =========================================#
 from fastapi import FastAPI
 import pandas as pd
-import uvicorn
-from pydantic import BaseModel, validator
-import numpy as np
+from pydantic import BaseModel
 import gensim
-from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+from gensim.models.doc2vec import Doc2Vec
 from nltk.tokenize import word_tokenize
 import pandas as pd
 import numpy as np
@@ -17,21 +15,15 @@ class Data(BaseModel):
     text: list
 
 #================================= Declaring FASTAPI  ============================================#
-# FastApi declaration
 app = FastAPI(title='Emotional Recommender', version='1.0',
               description='BERT Models are used to predict the emotion from song lyrics')
 
 
 #================================= File Prediction ==========================================+#
-
-
-
 @app.post("/lyrics")
 def user_lyrics(lyrics: Data):
     lyrics = lyrics.text
-    print(f"Check  {lyrics}")
     lyrics = get_similar(lyrics)
-    print(type(lyrics))
     json_string = lyrics.to_json(orient='records')
     return {"mood": json_string}
 
@@ -46,6 +38,7 @@ def get_similar(song_lyrics):
     sim  = filter(similar_doc)
     return sim
 
+#============================  FILTER SIMILAR RESULT ========================================#
 def filter(result):
     df = pd.read_csv("dataset/lyrics.csv")
     index_list = []
@@ -53,4 +46,3 @@ def filter(result):
         index_list.append(int(i[0]))
     filtered_df = df[df.index.isin(index_list)]
     return filtered_df
-

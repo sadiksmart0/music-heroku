@@ -5,28 +5,27 @@ import uuid
 import datetime
 import json
 import pandas as pd
-import uvicorn
 import nltk
 nltk.download('punkt')
 
 
 
-#================ Gif loader ===================#
+#=============================== Gif loader ============================#
 file_ = open("images/prof.gif", "rb")
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()
 
-#================ Side Bar ===================#
+#===================================== Side Bar =========================#
 add_selectbox = st.sidebar.selectbox(
-    "Explore our top 10",
+    "Explore our your emotion",
     ("Happy", "Sad", "Angry","Relaxed")
 )
 
 
 
 
-#================ App Header ===================#
+#========================= App Header =============================================#
 head, photo = st.columns(2)    
 with head:   
     st.title("With music there is no tension.")

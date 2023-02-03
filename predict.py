@@ -3,8 +3,6 @@ import json
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import neattext as nt
-import pandas as pd
-import numpy as np
 from nltk.tokenize import word_tokenize
 
 
@@ -18,7 +16,7 @@ def clean_text(text):
     return song
 
 
-
+#================================ TOKENIZE WORDS  ============================#
 def tokenize_lyrics(text):
     cleaned_song = clean_text(text)
     tokenized = word_tokenize(cleaned_song.lower())

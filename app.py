@@ -22,9 +22,6 @@ add_selectbox = st.sidebar.selectbox(
     ("Happy", "Sad", "Angry","Relaxed")
 )
 
-
-
-
 #========================= App Header =============================================#
 head, photo = st.columns(2)    
 with head:   
@@ -51,7 +48,7 @@ def view(result):
                 st.markdown(f"[![Foo](https://cdn-icons-png.flaticon.com/128/9458/9458362.png)]({song['preview']})")
 
 
-
+#============================== SEARCH VIEW =================================#
 st.subheader("Search by Lyrics")
 txt = st.text_area('Insert Song Lyrics', '''
 It was the best of times, it was the worst of times, it was
@@ -61,11 +58,6 @@ was the season of Light, it was the season of Darkness, it
 was the spring of hope, it was the winter of despair, (...)
 ''')
 
-lyrics_data = {
-    'lyrics_id': str(uuid.uuid1()),
-    'timestamp': datetime.datetime.now(),
-    'lyrics': txt
-}
 
 if st.button('Submit'):
     mood = recommend_with_lyrics(txt)
